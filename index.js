@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const TeacherRoute = require('./routes/Teachers.route');
 const CommunityRoute = require('./routes/Community.route');
+const UserRoute = require('./routes/Users.route');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -23,6 +24,7 @@ app.use(express.json());
 // routes
 app.use('/teachers',TeacherRoute);
 app.use('/communities',CommunityRoute);
+app.use('/user',UserRoute);
 
 
 // app
