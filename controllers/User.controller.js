@@ -27,7 +27,7 @@ async function CreateToken(req, res, next){
             number:number
         }
     }, process.env.secret_key);
-    req.token = token
+    req.body.token = token
 
     next()
 }
@@ -36,7 +36,7 @@ async function hashPassword(req, res, next){
     const {password} = req.body;
     const saltRounds = 10;
     const passwordHashed = await bcrypt.hash(password, saltRounds)
-    req.passwordHashed = passwordHashed
+    req.body.passwordHashed = passwordHashed
 
     next()
 }
