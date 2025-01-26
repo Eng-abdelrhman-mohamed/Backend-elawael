@@ -15,7 +15,7 @@ async function ResultValidation(req, res, next){
 async function isUserExit(req, res, next){
     const { number } = req.body;
     const isUserExits = await userSchema.findOne({number});
-    if(isUserExits) return res.json({error:'this userIs exit', Status:404, message:"this use is already exist"}).status(404)
+    if(isUserExits) return res.status(404).json({error:'this userIs exit', Status:404, message:"this use is already exist"})
     next()
 }
 // create token when user register
