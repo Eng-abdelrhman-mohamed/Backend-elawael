@@ -101,9 +101,9 @@ app.put('/edit',
         user.password = user.password;
         user.token = user.token;
         await user.save()
-        res.json({message:"user have been updated"}).status(200)
+        res.status(200).json({message:"user have been updated"})
     }else{
-        res.json({error:"invalid token"}).status(403)
+        res.status(403).json({error:"invalid token"})
     }
 
 })
