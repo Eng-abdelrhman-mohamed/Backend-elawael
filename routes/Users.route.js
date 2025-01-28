@@ -41,7 +41,11 @@ app.post('/register',
             token:token
         })
         await user.save()
-        res.json([{data:token, Status:200, message:"create User have been done"}]).status(200)
+        res.json([{data:{
+            avatar:user.avatar,
+            name:user.name,
+            token:user.token
+        }, Status:200, message:"create User have been done"}]).status(200)
 })
 
 app.post('/login',
@@ -66,7 +70,11 @@ app.post('/login',
     if(user){
         bcrypt.compare(password, user.password, async (err, result)=>{
             if(result){
-                res.json([{data:user.token, Status:200, message:"create User have been done"}]).status(200)
+                res.json([{data:{
+                    avatar:user.avatar,
+                    name:user.name,
+                    token:user.token
+                }, Status:200, message:"create User have been done"}]).status(200)
             }
             else{
                 res.status(404).json({error:"password or number is wrng"})
@@ -101,9 +109,9 @@ app.put('/edit',
         user.password = user.password;
         user.token = user.token;
         await user.save()
-        res.status(200).json({message:"user have been updated"})
+        res.json({message:"user have been updated"}).status(200)
     }else{
-        res.status(403).json({error:"invalid token"})
+        res.json({error:"invalid token"}).status(403)
     }
 
 })
