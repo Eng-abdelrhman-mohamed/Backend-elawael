@@ -7,7 +7,7 @@ const CommunityRoute = require('./routes/Community.route');
 const UserRoute = require('./routes/Users.route');
 const BooksRoute = require('./routes/Books.route');
 const NotebookRoute = require('./routes/Notebook.route');
-const starRoute = require('./routes/Notebook.route');
+const starRoute = require('./routes/Star.route');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
